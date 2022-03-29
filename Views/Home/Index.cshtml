@@ -27,3 +27,38 @@
     <button id="bouton4" class="btn btn-primary">Bouton 4</button>
     <div id="reponse4"></div> 
 </div>
+
+
+@section scripts{ 
+
+    <script>
+        var msg = "Appel AJAX avec succès!";
+        var reponse1 = document.getElementById("reponse1");
+
+        //$("#bouton1").click(function (e) {
+        //    var baliseP = document.createElement("p");
+        //    baliseP.innerHTML = msg;
+        //    reponse1.appendChild(baliseP);
+
+           
+         
+
+        //})
+
+        $(function () {
+            $("#bouton1").click(function () {
+                $.post("/Home/Partie1",
+                    { name: $("#reponse1").val() },
+                    function (response) {
+                        var baliseP = document.createElement("p");
+                        baliseP.innerHTML = msg;
+                        reponse1.appendChild(baliseP);
+
+                    }
+                );
+            });
+        });
+
+    </script>
+ 
+}
